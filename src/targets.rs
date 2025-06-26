@@ -587,6 +587,7 @@ pub enum Vendor {
     Rumprun,
     Sun,
     Uwp,
+    Wasmer,
     Wrs,
 
     /// A custom vendor. "Custom" in this context means that the vendor is
@@ -619,6 +620,7 @@ impl Vendor {
             Rumprun => "rumprun",
             Sun => "sun",
             Uwp => "uwp",
+            Wasmer => "wasmer",
             Wrs => "wrs",
             Custom(name) => name.as_str(),
         }
@@ -734,6 +736,7 @@ pub enum Environment {
     AmdGiz,
     Android,
     Androideabi,
+    Dl,
     Eabi,
     Eabihf,
     Gnu,
@@ -777,6 +780,7 @@ impl Environment {
             AmdGiz => Cow::Borrowed("amdgiz"),
             Android => Cow::Borrowed("android"),
             Androideabi => Cow::Borrowed("androideabi"),
+            Dl => Cow::Borrowed("dl"),
             Eabi => Cow::Borrowed("eabi"),
             Eabihf => Cow::Borrowed("eabihf"),
             Gnu => Cow::Borrowed("gnu"),
@@ -1323,6 +1327,7 @@ impl FromStr for Vendor {
             "rumprun" => Rumprun,
             "sun" => Sun,
             "uwp" => Uwp,
+            "wasmer" => Wasmer,
             "wrs" => Wrs,
             custom => {
                 #[cfg(not(feature = "std"))]
@@ -1480,6 +1485,7 @@ impl FromStr for Environment {
             "amdgiz" => AmdGiz,
             "android" => Android,
             "androideabi" => Androideabi,
+            "dl" => Dl,
             "eabi" => Eabi,
             "eabihf" => Eabihf,
             "gnu" => Gnu,
